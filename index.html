@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Calculadora</title>
+    <meta charset="utf-8" lang="pt-br">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <p id="memoria"></p>
+        <p id="resultado"></p>        
+            <table>
+                <tr>
+                    <th class="cinza" id="ac">AC</th>
+                    <th class="cinza" id="+-">+/-</th>
+                    <th class="cinza" id="%">%</th>
+                    <th class="operador" valor="/">/</th>
+                </tr>
+                <tr>
+                    <td class="numero" valor="7">7</td>
+                    <td class="numero" valor="8">8</td>
+                    <td class="numero" valor="9">9</td>
+                    <td class="operador" valor="X">X</td>
+                </tr>
+                <tr>
+                    <td class="numero" valor="4">4</td>
+                    <td class="numero" valor="5">5</td>
+                    <td class="numero" valor="6">6</td>
+                    <td class="operador" valor="-">-</td>
+                </tr>
+                <tr>
+                    <td class="numero" valor="1">1</td>
+                    <td class="numero" valor="2">2</td>
+                    <td class="numero" valor="3">3</td>
+                    <td class="operador" valor="+">+</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="numero" valor="0">0</td>
+                    <td class="virgula" valor=",">,</td>
+                    <td class="igual" id="equal" valor="=">=</td>
+                </tr>
+            </table>
+        <script src="calcjquery.js"></script>
+    </body>
+</html>
