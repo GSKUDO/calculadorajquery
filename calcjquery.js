@@ -33,8 +33,8 @@ $(document).ready(function(){
             conteudomemoria = conteudomemoria.replace("+", (operadordavez + " "));
             document.getElementById("memoria").innerHTML = conteudomemoria;
             $("#resultado").text("");
-        } else if (conteudomemoria.includes("-")){
-            conteudomemoria = conteudomemoria.replace("-", (operadordavez + " "));
+        } else if (conteudomemoria.includes(" - ")){
+            conteudomemoria = conteudomemoria.replace(" - ", (" " + operadordavez + " "));
             document.getElementById("memoria").innerHTML = conteudomemoria;
             $("#resultado").text("");
         }else if (conteudomemoria.includes("X")){
@@ -67,12 +67,43 @@ $(document).ready(function(){
     });
 
     $(".virgula").click(function(){    
-        let contmemoria = document.getElementById("memoria").innerText;
-        if (contmemoria.includes("=")){
-            $("#memoria").text("");    
+        let cont = document.getElementById("memoria").innerText;
+        const contasepar = cont.split(" ");
+
+        if (contasepar[contasepar.length-1].includes("=")){
+            $("#memoria").text("");
             $("#resultado").text("");
-        }    
-        $("#memoria").append(".");
+            $("#memoria").append(".");
+        }else if (contasepar[contasepar.length-1].includes(".")){
+            alert("numero já possui vírgula");
+        }else{$("#memoria").append(".");}
+    });
+
+    $("#porcento").click(function(){    
+        let cont = document.getElementById("memoria").innerText;
+        let contasepa = cont.split(" ");
+
+        if (isNaN(parseFloat(contasepa[contasepa.length-1]))){
+            alert("Digite primeiro o número")
+        }else{
+            let porcentagem = (parseFloat(contasepa[contasepa.length-1])/100);
+            contasepa.pop();
+            contasepa.push(porcentagem);
+            document.getElementById("memoria").innerHTML = contasepa.join(" ");
+        };
+    });
+
+    $("#maismenos").click(function(){    
+        let con = document.getElementById("memoria").innerText;
+        let contasep = con.split(" ");
+        if (isNaN(parseFloat(contasep[contasep.length-1]))){
+            alert("Digite primeiro o número")
+        }else{
+        let invertesinal = (-(parseFloat(contasep[contasep.length-1])));
+        contasep.pop();
+        contasep.push(invertesinal);
+        document.getElementById("memoria").innerHTML = contasep.join(" ");
+        };
     });
 
     function resultado() {
@@ -96,4 +127,3 @@ $(document).ready(function(){
         document.getElementById("resultado").innerHTML = resultadodaconta;
     }
 });
-
